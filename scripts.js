@@ -2,6 +2,7 @@ function createDivs(numDiv) {
     for(let i = 0; i < numDiv; i++) {
         let squares = document.createElement('div');
         squares.classList.add('squares');
+        squares.addEventListener('mouseover', e => e.target.classList.add('mouseover-color'));
         container.appendChild(squares);
     }
 }
