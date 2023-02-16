@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.squares {
+    height: 100px;
+    width: 100px;
+    background-color: #c9c9c9;
+    border: 1px solid #FFF;
+}
