@@ -1,12 +1,46 @@
+body {
+    background-color: #121212;
+}
+
+h1 {
+    text-align: center;
+    color: #FFF;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.color-input, .eraser-btn, .clear-btn {
+    margin-bottom: 20px;
+}
+
+.eraser-btn, .clear-btn {
+    width: 75px;
+}
+
 .container {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    border: 1px solid red;
+    width: 500px;
+    height: 500px;
 }
 
 .squares {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     background-color: #c9c9c9;
     border: 1px solid #FFF;
 }
