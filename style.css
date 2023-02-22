@@ -52,9 +52,9 @@ h1 {
 }
 
 .container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    display: grid;
+    overflow: hidden;
+    padding: 5px;
     width: 500px;
     height: 500px;
     background-color: black;

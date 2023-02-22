@@ -24,12 +24,13 @@ confs.appendChild(clear);
 
 const rangeTitle = document.createElement('p');
 rangeTitle.classList.add('range-title');
-rangeTitle.textContent = 'Dynamic';
 rangeTitle.style.color = '#FFF';
+rangeTitle.textContent = `32 x 32`
 confs.appendChild(rangeTitle);
 
 const range = document.createElement('input');
 range.classList.add('range-input');
+range.setAttribute('id', 'range-input');
 range.setAttribute('type', 'range');
 range.setAttribute('min', '1');
 range.setAttribute('max', '64');
@@ -49,3 +50,7 @@ function createDivs(numDiv) {
         container.appendChild(squares);
     }
 }
+
+range.addEventListener('change', () => {
+    rangeTitle.textContent = `${range.value} x ${range.value}`;
+})
