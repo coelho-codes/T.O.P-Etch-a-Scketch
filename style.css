@@ -33,11 +33,11 @@ h1 {
     cursor: pointer;
 }
 
-.color-input, .eraser-btn, .clear-btn {
+.color-input, .eraser-btn, .clear-btn, .color-mode-btn {
     margin-bottom: 20px;
 }
 
-.eraser-btn, .clear-btn {
+.eraser-btn, .clear-btn, .color-mode-btn {
     width: 100px;
     padding: 5px 0px;
     font-size: 16px;
@@ -47,7 +47,7 @@ h1 {
     cursor: pointer;
 }
 
-.eraser-btn:hover, .clear-btn:hover {
+.eraser-btn:hover, .clear-btn:hover, .color-mode-btn:hover {
     width: 115px;
 }
 

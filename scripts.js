@@ -8,7 +8,27 @@ function changeGrid() {
     const cell = document.createElement('div');
     cell.classList.add('cells');
     cell.addEventListener('mouseover', () => {
-        cell.style.backgroundColor = `${color.value}`;
+        if(eraserOn) {
+            cell.style.backgroundColor = '#000000';
+        } else {
+            cell.style.backgroundColor = `${color.value}`;
+        }
+    });
+    container.appendChild(cell);
+    }
+}
+
+function clearButton() {
+    container.innerHTML = '';
+    for (let i = 0; i < numColumns * numRows; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('cells');
+    cell.addEventListener('mouseover', () => {
+        if(eraserOn) {
+            cell.style.backgroundColor = '#000000';
+        } else {
+            cell.style.backgroundColor = `${color.value}`;
+        }
     });
     container.appendChild(cell);
     }
@@ -26,6 +46,12 @@ color.classList.add('color-input');
 color.value = '#ABABAB';
 color.setAttribute('type', 'color');
 confs.appendChild(color);
+
+const colorMode = document.createElement('input');
+colorMode.classList.add('color-mode-btn');
+colorMode.setAttribute('value', 'Color Mode');
+colorMode.setAttribute('type', 'button');
+confs.appendChild(colorMode);
 
 const eraser = document.createElement('input');
 eraser.classList.add('eraser-btn');
@@ -59,10 +85,9 @@ const container = document.createElement('div');
 container.classList.add('container');
 mainContainer.appendChild(container);
 
-
-
 let numColumns = range.value;
 let numRows = range.value;
+let eraserOn = false;
 
 for(let i = 0; i < numColumns * numRows; i++) {
     container.style.setProperty('--num-columns', `${numColumns}`);
@@ -72,7 +97,12 @@ for(let i = 0; i < numColumns * numRows; i++) {
     const cell = document.createElement('div');
     cell.classList.add('cells');
     cell.addEventListener('mouseover', () => {
-        cell.style.backgroundColor = `${color.value}`;
+        if(eraserOn) {
+            cell.style.backgroundColor = '#000000';
+        } else {
+            cell.style.backgroundColor = `${color.value}`;
+        }
+        
     });
     container.appendChild(cell);
 }
@@ -82,4 +112,14 @@ range.addEventListener('change', () => {
     numColumns = range.value;
     numRows = range.value;
     changeGrid();
+})
+
+clear.addEventListener('click', clearButton);
+
+eraser.addEventListener('click', () => {
+    eraserOn = true;
+})
+
+colorMode.addEventListener('click', () => {
+    eraserOn = false;
 })
