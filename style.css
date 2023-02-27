@@ -53,6 +53,9 @@ h1 {
 
 .container {
     display: grid;
+    grid-template-columns: repeat(var(--num-columns), var(--column-width));
+    grid-template-rows: repeat(var(--num-rows), var(--row-width));
+    gap: 1px;
     overflow: hidden;
     padding: 5px;
     width: 500px;
@@ -61,13 +64,3 @@ h1 {
     box-shadow: 0px 1px 10px 5px rgba(200, 200, 200, 0.5);
 }
 
-.squares {
-    height: 50px;
-    width: 50px;
-    background-color: #c9c9c9;
-    border: 1px solid #FFF;
-}
-
-.mouseover-color {
-    background-color: red;
-}

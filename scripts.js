@@ -1,3 +1,17 @@
+function changeGrid() {
+    container.style.setProperty('--num-columns', `${numColumns}`);
+    container.style.setProperty('--column-width', `1fr`);
+    container.style.setProperty('--num-rows', `${numRows}`);
+    container.style.setProperty('--row-width', `1fr`);
+    container.innerHTML = ''; // clear the container
+    for (let i = 0; i < numColumns * numRows; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('cells');
+    cell.style.backgroundColor = '#ccc';
+    container.appendChild(cell);
+    }
+}
+
 const mainContainer = document.getElementById('main-container');
 
 //The container for configurations
@@ -42,15 +56,25 @@ const container = document.createElement('div');
 container.classList.add('container');
 mainContainer.appendChild(container);
 
-function createDivs(numDiv) {
-    for(let i = 0; i < numDiv; i++) {
-        let squares = document.createElement('div');
-        squares.classList.add('squares');
-        squares.addEventListener('mouseover', e => e.target.classList.add('mouseover-color'));
-        container.appendChild(squares);
-    }
+
+
+let numColumns = range.value;
+let numRows = range.value;
+
+for(let i = 0; i < numColumns * numRows; i++) {
+    container.style.setProperty('--num-columns', `${numColumns}`);
+    container.style.setProperty('--column-width', `1fr`);
+    container.style.setProperty('--num-rows', `${numRows}`);
+    container.style.setProperty('--row-width', `1fr`);
+    const cell = document.createElement('div');
+    cell.classList.add('cells');
+    cell.style.backgroundColor = '#ccc';
+    container.appendChild(cell);
 }
 
 range.addEventListener('change', () => {
     rangeTitle.textContent = `${range.value} x ${range.value}`;
+    numColumns = range.value;
+    numRows = range.value;
+    changeGrid();
 })
