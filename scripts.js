@@ -7,7 +7,9 @@ function changeGrid() {
     for (let i = 0; i < numColumns * numRows; i++) {
     const cell = document.createElement('div');
     cell.classList.add('cells');
-    cell.style.backgroundColor = '#ccc';
+    cell.addEventListener('mouseover', () => {
+        cell.style.backgroundColor = `${color.value}`;
+    });
     container.appendChild(cell);
     }
 }
@@ -21,6 +23,7 @@ mainContainer.appendChild(confs);
 
 const color = document.createElement('input');
 color.classList.add('color-input');
+color.value = '#ABABAB';
 color.setAttribute('type', 'color');
 confs.appendChild(color);
 
@@ -68,7 +71,9 @@ for(let i = 0; i < numColumns * numRows; i++) {
     container.style.setProperty('--row-width', `1fr`);
     const cell = document.createElement('div');
     cell.classList.add('cells');
-    cell.style.backgroundColor = '#ccc';
+    cell.addEventListener('mouseover', () => {
+        cell.style.backgroundColor = `${color.value}`;
+    });
     container.appendChild(cell);
 }
 
